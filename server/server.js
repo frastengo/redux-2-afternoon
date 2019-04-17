@@ -27,6 +27,7 @@ app.get('/auth/logout', user.logout)
 app.post('/auth/login', user.login)
 
 app.use((req, res, next) => {
+  console.log(req.session.user)
   if (req.session.user) return next();
   else res.sendStatus(401);
 })
